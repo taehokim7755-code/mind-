@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>3시 13분 인트로</title>
+<link rel="stylesheet" href="fonts/local.css">
+<style>
+  :root {
+    --bg: #05070b;
+    --ink: #e8edf5;
+    --dim: #8c96a8;
+    --blue: #7fa6d9;
+    --red: #d8323c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); }
+  body { font-family: 'Noto Sans KR', sans-serif; color: var(--ink); }
+  #stage { position: absolute; inset: 0; overflow: hidden; }
+  .layer { position: absolute; inset: 0; }
+
+  /* 새벽 청회색 배경광 */
+  #glow {
+    background:
+      radial-gradient(ellipse 70% 45% at 50% 38%, rgba(70,105,160,.55), transparent 70%),
+      radial-gradient(ellipse 90% 60% at 50% 100%, rgba(20,30,50,.9), transparent 70%),
+      linear-gradient(#0a0f18, #04060a);
+  }
+
+  /* 잠금화면 */
+  #lock { display: flex; flex-direction: column; align-items: center; }
+  #date { margin-top: 330px; font-weight: 300; font-size: 44px; letter-spacing: 2px; color: #c9d3e3; }
+  #clock {
+    position: relative; margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace; font-weight: 300;
+    font-size: 260px; letter-spacing: -6px; line-height: 1;
+  }
+  #clock span { position: absolute; inset: 0; }
+  #clock .r { color: #ff3b47; mix-blend-mode: screen; }
+  #clock .c { color: #3bd4ff; mix-blend-mode: screen; }
+  #clock .w { position: relative; color: var(--ink); }
+
+  /* 알림 카드 → 음성메시지 플레이어 */
+  #card {
+    position: absolute; left: 60px; width: 960px;
+    border-radius: 44px; padding: 40px 44px;
+    background: rgba(28,36,50,.72);
+    border: 1px solid rgba(160,190,230,.18);
+    box-shadow: 0 30px 80px rgba(0,0,0,.55);
+    backdrop-filter: blur(20px);
+  }
+  #card .row { display: flex; align-items: center; gap: 26px; }
+  #card .icon {
+    width: 92px; height: 92px; border-radius: 24px; flex: none;
+    background: linear-gradient(160deg, #3a4b66, #1b2433);
+    display: grid; place-items: center;
+  }
+  #card .app { font-size: 30px; color: var(--dim); font-weight: 500; letter-spacing: 1px; }
+  #card .title { font-size: 46px; font-weight: 500; margin-top: 4px; }
+  #card .time { margin-left: auto; align-self: flex-start; font-size: 30px; color: var(--dim); }
+  #player { overflow: hidden; }
+  #wave { display: flex; align-items: center; gap: 9px; height: 200px; margin-top: 30px; }
+  #wave i { display: block; width: 14px; border-radius: 7px; background: var(--blue); }
+  #meta { display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 30px; color: var(--dim); margin-top: 10px; }
+
+  /* 자막 */
+  #sub {
+    position: absolute; left: 0; right: 0; top: 1330px; text-align: center;
+    font-size: 64px; font-weight: 500; line-height: 1.45; letter-spacing: -1px;
+    text-shadow: 0 4px 24px rgba(0,0,0,.8);
+  }
+  #sub .cursor { display: inline-block; width: 4px; height: 60px; margin-left: 6px; vertical-align: -8px; background: var(--ink); }
+
+  /* 타이틀 */
+  #title { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  #kicker { font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 34px; letter-spacing: 14px; color: var(--red); }
+  #tmain { position: relative; margin-top: 40px; font-family: 'Noto Serif KR', serif; font-weight: 900; font-size: 250px; letter-spacing: -4px; line-height: 1; white-space: nowrap; }
+  #tmain b { display: inline-block; font-weight: 900; }
+  #line { height: 4px; background: var(--red); margin-top: 60px; }
+  #tsub { margin-top: 44px; font-size: 48px; font-weight: 300; letter-spacing: 6px; color: #c9d3e3; }
+  #ep { margin-top: 120px; font-family: 'JetBrains Mono', monospace; font-size: 30px; letter-spacing: 8px; color: var(--dim); }
+
+  /* 질감 */
+  #scan { background: repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 2px, transparent 2px 5px); mix-blend-mode: overlay; }
+  #vig { background: radial-gradient(ellipse 75% 65% at 50% 50%, transparent 55%, rgba(0,0,0,.85) 100%); }
+  #grain { width: 100%; height: 100%; opacity: .09; mix-blend-mode: screen; }
+  #slices .s { position: absolute; left: 0; right: 0; background: rgba(200,220,255,.10); }
+  #flash { background: #fff; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="layer" id="glow"></div>
+
+  <div class="layer" id="lock">
+    <div id="date">10월 8일 목요일</div>
+    <div id="clock"><span class="r">03:13</span><span class="c">03:13</span><span class="w">03:13</span></div>
+  </div>
+
+  <div id="card">
+    <div class="row">
+      <div class="icon">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#cfe0ff" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="12" r="3.2"/><circle cx="18" cy="12" r="3.2"/><path d="M6 15.2h12"/></svg>
+      </div>
+      <div>
+        <div class="app">음성사서함 · 발신번호 없음</div>
+        <div class="title">새 음성메시지 1개</div>
+      </div>
+      <div class="time">지금</div>
+    </div>
+    <div id="player">
+      <div id="wave"></div>
+      <div id="meta"><span id="pos">0:00</span><span>0:07</span></div>
+    </div>
+  </div>
+
+  <div id="sub"></div>
+
+  <div class="layer" id="title">
+    <div id="kicker">VOICE MESSAGE</div>
+    <div id="tmain"><b>3</b><b>시</b><b>&nbsp;</b><b>1</b><b>3</b><b>분</b></div>
+    <div id="line"></div>
+    <div id="tsub">내일의 내가 보낸 메시지</div>
+    <div id="ep">EP.01 — 3:13 AM</div>
+  </div>
+
+  <canvas class="layer" id="grain" width="540" height="960"></canvas>
+  <div class="layer" id="slices"></div>
+  <div class="layer" id="scan"></div>
+  <div class="layer" id="vig"></div>
+  <div class="layer" id="flash"></div>
+</div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, t) => a + (b - a) * t;
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const easeOut = (x) => 1 - Math.pow(1 - x, 3);
+const easeInOut = (x) => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const backOut = (x) => { const c = 1.6; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+// 프레임마다 같은 결과가 나오도록 시드 기반 난수
+const rand = (n) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
+
+const BARS = 52;
+const wave = $('#wave');
+for (let i = 0; i < BARS; i++) wave.appendChild(document.createElement('i'));
+const bars = [...wave.children];
+
+const LINES = [
+  { text: '오늘 엘리베이터 타지 마.', a: 4.0, b: 5.1 },
+  { text: '계단으로 가.', a: 5.3, b: 5.9 },
+];
+
+const grain = $('#grain'), g = grain.getContext('2d');
+const gimg = g.createImageData(grain.width, grain.height);
+function drawGrain(seed) {
+  const d = gimg.data;
+  for (let i = 0; i < d.length; i += 4) {
+    const v = rand(seed * 9973 + i * .37) * 255;
+    d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255;
+  }
+  g.putImageData(gimg, 0, 0);
+}
+
+window.render = function (t) {
+  const frame = Math.round(t * 30);
+
+  // 글리치 강도: 03:13 전환, 메시지 끝 붕괴, 타이틀 등장
+  const glitch =
+    Math.max(0, 1 - Math.abs(t - 1.45) / .18) * .8 +
+    (t > 6.0 && t < 7.0 ? Math.pow(prog(t, 6.0, 6.9), 1.5) * (0.6 + rand(frame) * .6) : 0) +
+    Math.max(0, 1 - Math.abs(t - 7.15) / .12) * .7;
+
+  // 배경광
+  $('#glow').style.opacity = easeOut(prog(t, 0, 1.0)) * (t < 6.9 ? 1 : 0.35);
+
+  // 잠금화면 시계
+  const lockIn = easeOut(prog(t, 0.3, 1.2));
+  const lockOut = prog(t, 2.8, 3.6);
+  const lock = $('#lock');
+  lock.style.opacity = t < 6.9 ? lockIn * (1 - easeInOut(lockOut) * .85) : 0;
+  lock.style.transform = `translateY(${lerp(30, 0, lockIn) - easeInOut(lockOut) * 180}px) scale(${1 - easeInOut(lockOut) * .12})`;
+  lock.style.filter = `blur(${easeInOut(lockOut) * 14}px)`;
+  const tx = t < 1.45 ? '03:12' : '03:13';
+  document.querySelectorAll('#clock span').forEach((s) => (s.textContent = tx));
+  const split = glitch * 26;
+  $('#clock .r').style.transform = `translate(${-split}px, ${(rand(frame) - .5) * split}px)`;
+  $('#clock .c').style.transform = `translate(${split}px, ${(rand(frame + 3) - .5) * split}px)`;
+  $('#clock .r').style.opacity = $('#clock .c').style.opacity = clamp(glitch * 2);
+
+  // 알림 카드: 아래에서 튀어 올라온 뒤, 화면 중앙으로 커지며 플레이어가 펼쳐짐
+  const cardIn = backOut(prog(t, 2.0, 2.6));
+  const cardMove = easeInOut(prog(t, 2.9, 3.7));
+  const card = $('#card');
+  const baseTop = lerp(1960, 1040, cardIn);
+  card.style.top = lerp(baseTop, 640, cardMove) + 'px';
+  card.style.transform = `scale(${1 + cardMove * .02})`;
+  card.style.opacity = t < 6.9 ? prog(t, 2.0, 2.2) : 0;
+  $('#player').style.height = lerp(0, 270, cardMove) + 'px';
+  $('#player').style.opacity = cardMove;
+
+  // 음성 파형
+  const speaking = (t > 3.9 && t < 5.2) || (t > 5.3 && t < 6.0);
+  const pos = prog(t, 3.8, 6.4);
+  bars.forEach((b, i) => {
+    const played = i / BARS < pos;
+    let amp = 0.08 + 0.05 * Math.sin(t * 3 + i);
+    if (speaking) amp = 0.25 + 0.75 * Math.abs(Math.sin(t * 9 + i * .7)) * (0.4 + rand(frame * 7 + i) * .6) * Math.exp(-Math.pow((i / BARS - pos) * 3, 2) * 2 + .5);
+    if (t > 6.0) amp = clamp(amp + glitch * rand(frame + i) * 1.2);
+    b.style.height = clamp(amp, .05, 1) * 190 + 'px';
+    b.style.background = played ? (t > 6.0 && rand(frame + i * 2) < glitch * .6 ? '#ff3b47' : '#9cc0f0') : 'rgba(127,166,217,.28)';
+  });
+  const sec = Math.floor(pos * 7);
+  $('#pos').textContent = `0:0${sec}`;
+
+  // 타이핑 자막
+  let html = '';
+  LINES.forEach((l, i) => {
+    const n = Math.floor(prog(t, l.a, l.b) * [...l.text].length);
+    if (t >= l.a) html += (i ? '<br>' : '') + [...l.text].slice(0, n).join('');
+  });
+  const cursorOn = t > 3.9 && t < 6.6 && Math.floor(t * 2.5) % 2 === 0;
+  $('#sub').innerHTML = html + (cursorOn ? '<span class="cursor"></span>' : '');
+  $('#sub').style.opacity = t < 6.9 ? 1 : 0;
+  $('#sub').style.transform = `translateX(${t > 6.0 ? (rand(frame + 11) - .5) * glitch * 40 : 0}px)`;
+
+  // 타이틀
+  const title = $('#title');
+  title.style.opacity = t > 7.0 ? 1 - easeInOut(prog(t, 11.3, 12.0)) : 0;
+  $('#kicker').style.opacity = easeOut(prog(t, 7.6, 8.2));
+  $('#kicker').style.letterSpacing = lerp(30, 14, easeOut(prog(t, 7.6, 8.6))) + 'px';
+  [...$('#tmain').children].forEach((el, i) => {
+    const p = easeOut(prog(t, 7.1 + i * .09, 7.9 + i * .09));
+    el.style.opacity = p;
+    el.style.filter = `blur(${(1 - p) * 24}px)`;
+    el.style.transform = `translateY(${(1 - p) * 40}px) scale(${lerp(1.25, 1, p)})`;
+  });
+  const tj = Math.max(0, 1 - Math.abs(t - 7.15) / .12);
+  $('#tmain').style.textShadow = tj > 0 ? `${-14 * tj}px 0 #ff3b47, ${14 * tj}px 0 #3bd4ff` : '0 0 40px rgba(127,166,217,.25)';
+  $('#tmain').style.transform = `scale(${lerp(1, 1.04, prog(t, 7.1, 12))})`;
+  $('#line').style.width = easeInOut(prog(t, 8.2, 9.0)) * 640 + 'px';
+  $('#tsub').style.opacity = easeOut(prog(t, 8.8, 9.6));
+  $('#tsub').style.transform = `translateY(${(1 - easeOut(prog(t, 8.8, 9.6))) * 20}px)`;
+  $('#ep').style.opacity = easeOut(prog(t, 9.4, 10.2)) * .9;
+
+  // 질감 레이어
+  drawGrain(frame);
+  const sl = $('#slices');
+  sl.innerHTML = '';
+  const nSlices = Math.floor(glitch * 9);
+  for (let i = 0; i < nSlices; i++) {
+    const d = document.createElement('div');
+    d.className = 's';
+    d.style.top = rand(frame * 13 + i) * 1920 + 'px';
+    d.style.height = 6 + rand(frame * 17 + i) * 70 + 'px';
+    d.style.transform = `translateX(${(rand(frame * 19 + i) - .5) * 200}px)`;
+    sl.appendChild(d);
+  }
+  $('#stage').style.transform = glitch > .3 ? `translate(${(rand(frame + 5) - .5) * glitch * 24}px, 0)` : 'none';
+  $('#flash').style.opacity = Math.max(0, 1 - Math.abs(t - 7.0) / .1) * .55;
+  $('#vig').style.opacity = 1;
+};
+
+window.render(0);
+</script>
+</body>
+</html>
