@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>Green Compute Showcase</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+  @font-face { font-family: "Pretendard"; font-weight: 500; src: url("../fonts/Pretendard-Medium.otf"); }
+  @font-face { font-family: "Pretendard"; font-weight: 700; src: url("../fonts/Pretendard-Bold.otf"); }
+  @font-face { font-family: "Pretendard"; font-weight: 900; src: url("../fonts/Pretendard-Black.otf"); }
+  :root {
+    --green: #76B900; --glow: #A4E33B; --deep: #2F4A00;
+    --t20: rgba(118,185,0,.20); --t12: rgba(118,185,0,.12);
+    --black: #000; --white: #fff; --carbon: #0A0C0A; --graphite: #151815; --hair: #2A2F28;
+    --muted: #A6ADA3; --hint: #5F665C; --prompt: #ECEFF1; --red: #E5484D;
+    --mono: "JetBrains Mono", "DejaVu Sans Mono", monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #000; color: var(--white); font-family: "Pretendard", sans-serif; width: 1920px; }
+  .frame { position: relative; width: 1920px; height: 1080px; overflow: hidden; background: var(--black); border-bottom: 2px solid #111; }
+  .pad { position: absolute; inset: 110px 140px; }
+  .label { font-family: var(--mono); font-weight: 700; font-size: 22px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .kicker { display: flex; align-items: center; gap: 16px; }
+  .kicker::before { content: ""; width: 14px; height: 14px; background: var(--green); }
+  .source { position: absolute; right: 140px; bottom: 60px; font-family: var(--mono); font-size: 18px; letter-spacing: .06em; color: var(--hint); }
+  .tag { position: absolute; left: 140px; bottom: 60px; font-family: var(--mono); font-size: 18px; letter-spacing: .16em; color: var(--hint); }
+  .g { color: var(--green); }
+  .glow { position: absolute; border-radius: 50%; pointer-events: none; }
+  .grid { position: absolute; left: -50%; right: -50%; bottom: -10%; height: 55%;
+    background-image: linear-gradient(var(--deep) 1px, transparent 1px), linear-gradient(90deg, var(--deep) 1px, transparent 1px);
+    background-size: 80px 80px; transform: perspective(600px) rotateX(62deg); transform-origin: bottom;
+    -webkit-mask-image: linear-gradient(to top, #000 10%, transparent 85%); mask-image: linear-gradient(to top, #000 10%, transparent 85%); }
+
+  /* sheet */
+  .sheet h1 { font-weight: 900; font-size: 112px; letter-spacing: -.03em; line-height: 1.05; }
+  .swatches { display: grid; grid-template-columns: repeat(7, 1fr); gap: 24px; margin-top: 64px; }
+  .sw .chip { height: 200px; border: 1px solid var(--hair); }
+  .sw .n { margin-top: 16px; font-weight: 700; font-size: 26px; }
+  .sw .h { font-family: var(--mono); font-size: 20px; color: var(--muted); margin-top: 6px; }
+  .ramp { margin-top: 64px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 64px; align-items: end; }
+  .ramp .row { display: flex; align-items: baseline; gap: 24px; border-top: 1px solid var(--hair); padding: 10px 0; }
+  .ramp .row .label { width: 170px; flex: none; font-size: 18px; }
+</style>
+</head>
+<body>
+
+<!-- 0 · TOKEN SHEET -->
+<section class="frame sheet">
+  <div class="glow" style="width:1400px;height:900px;right:-500px;top:-400px;background:radial-gradient(closest-side,var(--t20),transparent)"></div>
+  <div class="pad">
+    <div class="label kicker">DESIGN SYSTEM · GREEN COMPUTE</div>
+    <h1 style="margin-top:28px">검은 공간 위, <span class="g">단 하나의 초록</span></h1>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:var(--green)"></div><div class="n">nvidia-green</div><div class="h">#76B900 · CI</div></div>
+      <div class="sw"><div class="chip" style="background:#000"></div><div class="n">black</div><div class="h">#000000 · CI</div></div>
+      <div class="sw"><div class="chip" style="background:#fff"></div><div class="n">white</div><div class="h">#FFFFFF · CI</div></div>
+      <div class="sw"><div class="chip" style="background:var(--glow)"></div><div class="n">green-glow</div><div class="h">#A4E33B · 발광</div></div>
+      <div class="sw"><div class="chip" style="background:var(--deep)"></div><div class="n">green-deep</div><div class="h">#2F4A00 · 그리드</div></div>
+      <div class="sw"><div class="chip" style="background:var(--prompt)"></div><div class="n">prompt-white</div><div class="h">#ECEFF1 · ChatGPT</div></div>
+      <div class="sw"><div class="chip" style="background:var(--red)"></div><div class="n">loss-red</div><div class="h">#E5484D · 하락</div></div>
+    </div>
+    <div class="ramp">
+      <div>
+        <div class="row"><span class="label">display 900</span><span style="font-weight:900;font-size:120px;letter-spacing:-.04em;line-height:1">AI 팩토리</span></div>
+        <div class="row"><span class="label">h2 700</span><span style="font-weight:700;font-size:64px;letter-spacing:-.02em">연산이 곧 화폐가 되었다</span></div>
+        <div class="row"><span class="label">body 500</span><span style="font-weight:500;font-size:32px;color:var(--muted)">질문 하나가 수천 개의 GPU를 깨운다.</span></div>
+      </div>
+      <div>
+        <div class="row"><span class="label">label mono</span><span class="label" style="width:auto;font-size:22px;color:var(--green)">■ CHAPTER 03</span></div>
+        <div class="row"><span class="label">data mono</span><span style="font-family:var(--mono);font-size:28px">NVDA ▲ {NN.N%}</span></div>
+        <div class="row"><span class="label">stat 900</span><span class="g" style="font-weight:900;font-size:96px;letter-spacing:-.05em;line-height:1;text-shadow:0 0 40px var(--t20)">{NN×}</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 1 · COLD OPEN -->
+<section class="frame">
+  <div class="glow" style="width:1200px;height:600px;left:360px;top:300px;background:radial-gradient(closest-side,rgba(236,239,241,.08),transparent)"></div>
+  <div style="position:absolute;left:360px;top:440px;width:1200px;height:150px;background:var(--graphite);border:2px solid var(--hair);border-radius:20px;display:flex;align-items:center;padding:0 48px;">
+    <span style="font-weight:500;font-size:40px;color:var(--prompt)">세상을 바꿀 질문을 입력하세요</span>
+    <span style="width:22px;height:46px;background:var(--prompt);margin-left:10px"></span>
+  </div>
+  <svg style="position:absolute;inset:0" width="1920" height="1080">
+    <path d="M960 590 V700 L1040 780 H1780" fill="none" stroke="#76B900" stroke-width="2"/>
+    <circle cx="1780" cy="780" r="7" fill="#A4E33B"/>
+    <circle cx="1780" cy="780" r="22" fill="rgba(164,227,59,.25)"/>
+  </svg>
+  <div class="tag">01 · COLD OPEN</div>
+</section>
+
+<!-- 2 · CHIP / DEMAND -->
+<section class="frame">
+  <div class="grid"></div>
+  <div class="glow" style="width:1100px;height:1100px;left:900px;top:-40px;background:radial-gradient(closest-side,var(--t20),transparent)"></div>
+  <div class="pad">
+    <div class="label kicker">CHAPTER 02 · THE DEMAND</div>
+    <div style="margin-top:28px;font-weight:900;font-size:112px;letter-spacing:-.03em;line-height:1.05">모든 답변 뒤에는<br><span class="g">GPU</span>가 있다</div>
+  </div>
+  <svg style="position:absolute;left:1150px;top:250px" width="560" height="560" viewBox="0 0 560 560">
+    <rect x="20" y="20" width="520" height="520" fill="none" stroke="#76B900" stroke-width="2"/>
+    <rect x="60" y="60" width="440" height="440" fill="none" stroke="#2F4A00" stroke-width="1.5"/>
+    <g stroke="#76B900" stroke-width="1.5">
+      <rect x="80" y="80" width="190" height="190" fill="rgba(118,185,0,.20)"/>
+      <rect x="290" y="80" width="190" height="190" fill="rgba(118,185,0,.20)"/>
+      <rect x="80" y="290" width="190" height="190" fill="rgba(118,185,0,.20)"/>
+      <rect x="290" y="290" width="190" height="190" fill="none"/>
+    </g>
+    <g stroke="#2F4A00" stroke-width="1">
+      <path d="M80 175H270M175 80V270M290 175H480M385 80V270M80 385H270M175 290V480M290 385H480M385 290V480"/>
+    </g>
+  </svg>
+  <svg style="position:absolute;inset:0" width="1920" height="1080">
+    <path d="M140 700 H700 L780 620 H1150" fill="none" stroke="#76B900" stroke-width="2"/>
+    <circle cx="1150" cy="620" r="7" fill="#A4E33B"/>
+  </svg>
+  <div class="tag">03 · THE DEMAND</div>
+</section>
+
+<!-- 3 · STOCK EXPLOSION -->
+<section class="frame">
+  <div class="glow" style="width:1600px;height:900px;left:600px;top:200px;background:radial-gradient(closest-side,var(--t20),transparent)"></div>
+  <div class="pad">
+    <div class="label kicker">CHAPTER 05 · THE EXPLOSION</div>
+    <div style="margin-top:20px;display:flex;align-items:baseline;gap:32px">
+      <span class="g" style="font-weight:900;font-size:200px;letter-spacing:-.05em;line-height:.9;text-shadow:0 0 40px var(--t20)">{NNNN%}</span>
+      <span style="font-weight:700;font-size:52px">주가 상승률</span>
+    </div>
+  </div>
+  <svg style="position:absolute;left:140px;top:430px" width="1640" height="520" viewBox="0 0 1640 520">
+    <defs><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#76B900" stop-opacity=".25"/><stop offset="1" stop-color="#76B900" stop-opacity="0"/></linearGradient></defs>
+    <line x1="0" y1="0" x2="0" y2="500" stroke="#2A2F28"/><line x1="0" y1="500" x2="1640" y2="500" stroke="#2A2F28"/>
+    <path d="M0 455 L180 440 L330 470 L460 462 L520 450 L700 430 L860 380 L1000 360 L1140 280 L1260 230 L1380 150 L1500 90 L1600 30 V500 H0Z" fill="url(#a)"/>
+    <path d="M0 455 L180 440 L330 470 L460 462 L520 450 L700 430 L860 380 L1000 360 L1140 280 L1260 230 L1380 150 L1500 90 L1600 30" fill="none" stroke="#76B900" stroke-width="4" stroke-linejoin="round"/>
+    <circle cx="1600" cy="30" r="9" fill="#A4E33B"/><circle cx="1600" cy="30" r="28" fill="rgba(164,227,59,.25)"/>
+    <line x1="460" y1="0" x2="460" y2="500" stroke="#ECEFF1" stroke-width="2" stroke-dasharray="6 10"/>
+    <rect x="476" y="8" width="230" height="44" fill="#151815" stroke="#2A2F28"/>
+    <text x="492" y="38" fill="#ECEFF1" font-family="JetBrains Mono, monospace" font-size="20" letter-spacing="2">CHATGPT LAUNCH</text>
+  </svg>
+  <div class="source">SAMPLE CURVE · 실제 데이터 아님 · SOURCE {출처}, {기준일}</div>
+  <div class="tag">05 · THE EXPLOSION</div>
+</section>
+
+<!-- 4 · KEYNOTE STATEMENT -->
+<section class="frame">
+  <div class="grid" style="opacity:.7"></div>
+  <div class="glow" style="width:1400px;height:800px;left:260px;top:140px;background:radial-gradient(closest-side,var(--t20),transparent)"></div>
+  <div style="position:absolute;left:0;right:0;top:330px;text-align:center">
+    <div class="label" style="display:inline-flex;align-items:center;gap:16px"><span style="width:14px;height:14px;background:var(--green)"></span>KEYNOTE STATEMENT</div>
+    <div style="margin-top:32px;font-weight:900;font-size:168px;letter-spacing:-.04em;line-height:.95">데이터센터는<br>이제 <span class="g" style="text-shadow:0 0 60px var(--t20)">AI 공장</span>이다</div>
+  </div>
+  <div class="tag">07 · STATEMENT</div>
+</section>
+
+</body>
+</html>
