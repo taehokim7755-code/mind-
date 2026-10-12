@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: GREEN COMPUTE — Frame (ChatGPT × NVIDIA 모션그래픽)
+name: GREEN COMPUTE — Design (ChatGPT × NVIDIA 모션그래픽)
 description: >
   ChatGPT의 등장과 엔비디아 주가 폭발을 다루는 모션그래픽 영상의 프레임 단위 디자인 시스템.
   엔비디아 CI/BI(NVIDIA Green #76B900 · 블랙 · 화이트 · 강한 산세리프)를 원자로 삼고,
@@ -122,7 +122,7 @@ components:
     description: "NVIDIA·OpenAI 로고는 공식 배포 파일만 사용. 재작도·재채색·변형·글로우 금지. 최소 여백 = 로고 높이의 50%."
 ---
 
-# GREEN COMPUTE — Frame
+# GREEN COMPUTE — Design
 
 ## Overview
 
