@@ -1,0 +1,12 @@
+# EP.03 썸네일 배경 프롬프트 (밝은 낮 장면, 개념을 그림으로, 글자 자리 비우기)
+# Flow 16:9 · 참조: 스톡\이미지\00.png(주인공), 스톡\이미지\EP03\004_03-한선생….jpeg(한 선생)
+# 저장: D:\유남매 작업실\골프심리학\range5\썸네일\ 에 파일 이름 그대로 → 글자 얹어 다시 찍기
+
+[T1] 썸네일_배경_OB.png — 하단 띠형 (연습장에선 잘 맞는데 필드에선 OB)  ← 추천, 썸네일 A 대체
+Korean webtoon anime style illustration, clean bold line art, bright cel shading, vivid saturated colors, sunny daylight, cinematic 16:9 thumbnail composition. Split scene: on the left, the main character, a Korean man in his mid-50s with short graying hair, navy blue polo shirt and cream golf cap, proudly hitting perfect straight shots at a driving range with green nets; on the right, the same man on a bright first tee with a shocked face, eyes wide and mouth open, as his ball slices far over a row of white out-of-bounds stakes into the trees. The bottom third of the image is plain grass with no details, leaving clean space for large text. No text, no letters, no numbers, no logos, no watermark.
+
+[T2] 썸네일_배경_200대30.png — 숫자 강조형 (공 200개 vs 공 30개)
+Korean webtoon anime style illustration, clean bold line art, bright cel shading, vivid saturated colors, sunny daylight, cinematic 16:9 thumbnail composition. Two neighboring driving range booths: on the left the main character, a Korean man in his mid-50s with graying hair, navy polo and cream cap, exhausted and sweating, buried among mountains of golf balls and two overflowing baskets; on the right a calm lean Korean man in his early 70s with white hair, white cap and light gray vest, smiling confidently next to a tiny basket of a few balls. The upper-left quarter is plain bright sky and the bottom third is plain turf, leaving clean space for text. No text, no letters, no numbers, no logos, no watermark.
+
+[T3] 썸네일_배경_한선생.png — 왼쪽 위 상자형 (같은 채로 두 번은 안 쳐요)
+Korean webtoon anime style illustration, clean bold line art, bright cel shading, vivid saturated colors, warm afternoon daylight, cinematic 16:9 thumbnail composition. A lean Korean man in his early 70s with white hair, white golf cap and light gray vest stands on the right half of the frame in three-quarter view at a driving range, holding up a driver, an iron and a wedge fanned out in one hand like playing cards, with a knowing wise smile, while the main character in a navy polo and cream cap looks at him in surprise. The upper-left quarter is plain bright sky and the bottom fifth is plain turf, leaving clean space for text boxes. No text, no letters, no numbers, no logos, no watermark.

@@ -1,0 +1,21 @@
+{
+ "channel": "그늘집 심리학",
+ "slogan": "18홀 사이, 마음을 쉬어 가는 곳",
+ "logo_small": "골프 멘탈 이야기",
+ "stock_lib": "D:/유남매 작업실/골프심리학/스톡",
+ "disclaimer_line": "골프장의 <b>마음</b>을<br>심리학으로 읽습니다",
+ "disclaimer_small": "연구 내용은 이해를 돕기 위해 쉽게 풀었습니다<br>등장 인물과 장면은 이해를 돕기 위한 예시입니다",
+ "voice": "ko-KR-HyunsuMultilingualNeural",
+ "rate": "-8%",
+ "pitch": "+0Hz",
+ "intro": {
+  "design": 0,
+  "header": "그늘집 심리학 · EP.04",
+  "title": "",
+  "subtitle": "",
+  "bigword": "EPISODE",
+  "color": "#FFD21F",
+  "logo": "",
+  "bg": ""
+ }
+}

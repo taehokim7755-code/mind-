@@ -1,0 +1,176 @@
+@font-face{font-family:'Gmarket';src:url('assets/fonts/GmarketSansBold.otf');font-weight:700}
+@font-face{font-family:'Paperlogy';src:url('assets/fonts/Paperlogy-9Black.ttf');font-weight:900}
+@font-face{font-family:'Paperlogy';src:url('assets/fonts/Paperlogy-7Bold.ttf');font-weight:700}
+@font-face{font-family:'Pretendard';src:url('assets/fonts/Pretendard-Medium.otf');font-weight:500}
+@font-face{font-family:'Pretendard';src:url('assets/fonts/Pretendard-ExtraBold.otf');font-weight:800}
+:root{--ink:#0E2219;--cream:#F4EBD9;--cream2:#cfc6b2;--gold:#D9A93F;--goldD:#b08528;--up:#ff5a4a;--dn:#56a0ff}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#0E2219}
+#root{position:relative;width:100%;height:100%;overflow:hidden;font-family:'Pretendard',sans-serif;font-weight:500;color:var(--cream)}
+.clip{position:absolute;inset:0}
+video.clip{z-index:1;width:100%;height:100%;object-fit:cover}
+/* 스톡 위 막: 일반 = 위·아래만 / 카드 = 전체를 눌러 그래픽이 읽히게 */
+.dim{z-index:2;background:linear-gradient(rgba(8,26,19,.55) 0%,rgba(8,26,19,0) 18%,rgba(8,26,19,0) 74%,rgba(8,26,19,.5) 100%)}
+.dim.strong{background:linear-gradient(90deg,rgba(10,32,24,.56) 0%,rgba(10,32,24,.42) 42%,rgba(10,32,24,.18) 72%,rgba(10,32,24,.06) 100%)}
+.card{z-index:3}
+.grain{z-index:4;opacity:.12;mix-blend-mode:overlay;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .6 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
+.prog{z-index:8;inset:0 0 auto 0;height:7px;background:rgba(253,251,245,.16)}
+.prog i{display:block;width:100%;height:100%;background:var(--gold);transform-origin:0 50%}
+
+/* 헤더 */
+.hdr{z-index:5}
+.logo{position:absolute;left:52px;top:38px;width:300px;color:var(--cream)}
+.logo small{display:block;font-size:20px;letter-spacing:2px;font-weight:800;color:var(--cream2)}
+.logo b{display:block;font-family:'Paperlogy';font-weight:900;font-size:50px;letter-spacing:-2.5px;line-height:1.12;white-space:nowrap}
+.logo em{display:inline-block;margin-top:8px;font-style:normal;font-family:'Paperlogy';font-weight:700;font-size:28px;padding:5px 14px;background:var(--gold);color:var(--ink)}
+.hd{position:absolute;left:372px;top:38px}
+.tag{display:inline-block;background:var(--cream);color:var(--ink);font-family:'Paperlogy';font-weight:900;font-size:32px;padding:9px 20px;border:3px solid var(--ink)}
+.bar{display:block;width:max-content;margin-top:12px;font-size:37px;font-weight:500;padding:11px 24px;letter-spacing:-.6px;color:var(--cream);background:rgba(8,26,19,.74);border:3px solid var(--cream)}
+
+/* 자막: 검정 박스 + 흰 글씨 */
+.sub{z-index:7;inset:auto 0 60px 0;height:86px;display:flex;justify-content:center}
+.sub span{display:block;width:max-content;height:86px;line-height:86px;background:#0a0906;color:#fff;font-weight:800;font-size:52px;padding:0 32px;letter-spacing:-.6px}
+
+/* 카드 공통 */
+.head{position:absolute;left:140px;top:228px;width:1640px}
+.kick{display:flex;align-items:center;gap:16px;font-weight:800;font-size:30px;letter-spacing:4px;color:var(--gold)}
+.kick i{display:block;width:18px;height:18px;background:var(--gold)}
+.ttl{display:block;font-family:'Paperlogy';font-weight:900;font-size:68px;letter-spacing:-2px;margin-top:12px;color:var(--cream);white-space:nowrap}
+.rule{display:block;height:5px;background:var(--cream);transform-origin:0 50%;margin-top:24px}
+.note{display:block;width:max-content;margin-top:26px;font-family:'Paperlogy';font-weight:900;font-size:40px;padding:10px 22px;background:var(--gold);color:var(--ink);white-space:nowrap}
+.note.big{font-size:48px;margin:20px auto 0}
+.up .vl,.up .val,.up b.v,.num.up .fig b{color:var(--up)}.dn .vl,.dn .val,.num.dn .fig b{color:var(--dn)}.gold .vl,.gold .val,.num.gold .fig b{color:var(--gold)}
+.chip{display:block;width:max-content;font-family:'Paperlogy';font-weight:900;font-size:32px;padding:8px 16px;white-space:nowrap;background:var(--cream);color:var(--ink)}
+
+/* 숫자 */
+.num .L{position:absolute;left:140px;top:228px;width:1120px}
+.num .fig{display:flex;align-items:baseline;gap:22px;margin-top:22px;height:330px}
+.num .fig b{display:block;font-family:'Gmarket';font-size:330px;line-height:330px;letter-spacing:-12px;min-width:200px;white-space:nowrap;padding-right:16px}
+.num .fig u{display:block;text-decoration:none;font-family:'Paperlogy';font-weight:900;font-size:104px;color:var(--cream);letter-spacing:-4px;white-space:nowrap}
+.num .desc{display:block;font-size:40px;font-weight:800;color:var(--cream2);margin-top:20px;white-space:nowrap}
+.num .R{position:absolute;right:110px;top:262px;width:560px;border-top:5px solid var(--cream);border-bottom:2px solid var(--cream)}
+.num .R h4{font-size:27px;letter-spacing:4px;color:var(--gold);font-weight:800;padding:16px 0 6px}
+.num .R .f{display:block;padding:18px 0;border-top:1px solid rgba(253,251,245,.3)}
+.num .R .f s{display:block;text-decoration:none;font-size:30px;color:var(--cream2)}
+.num .R .f b{display:block;font-family:'Gmarket';font-size:48px;margin-top:6px;letter-spacing:-1.5px;color:var(--cream);white-space:nowrap}
+
+/* 순위·표 */
+.rank .rows{position:absolute;left:140px;top:470px;width:1640px}
+.rank .rw{display:flex;align-items:center;height:96px;border-bottom:2px solid rgba(253,251,245,.25);gap:30px}
+.rank .nm{display:block;width:560px;font-family:'Paperlogy';font-weight:900;font-size:52px;letter-spacing:-2px;white-space:nowrap}
+.rank .vl{display:block;width:620px;font-family:'Gmarket';font-size:66px;letter-spacing:-2.5px;white-space:nowrap}
+.rank .ch{display:block;font-family:'Paperlogy';font-weight:900;font-size:40px;white-space:nowrap}
+.rank .up .ch{color:var(--up)}.rank .dn .ch{color:var(--dn)}.rank .gold .ch{color:var(--gold)}
+
+.rank.compact .rows{top:440px}.rank.compact .rw{height:82px}.rank.compact .nm{font-size:46px}.rank.compact .vl{font-size:58px}
+/* 글자 수별 축소 — 칸이 nowrap이라 길면 옆 칸을 덮는다 */
+.rank .nm.mid{font-size:44px;letter-spacing:-2.5px}.rank .nm.long{font-size:38px;letter-spacing:-2px}
+.rank .vl.mid{font-size:52px;letter-spacing:-2px}.rank .vl.long{font-size:43px;letter-spacing:-1.5px}
+.rank .ch.mid{font-size:33px}.rank .ch.long{font-size:28px}
+.rank.compact .nm.mid{font-size:40px}.rank.compact .nm.long{font-size:34px}
+.rank.compact .vl.mid{font-size:47px}.rank.compact .vl.long{font-size:39px}
+
+/* 타임라인 */
+.tline .axis{position:absolute;left:140px;top:560px;width:1640px;height:300px}
+.tline .ln{position:absolute;left:0;top:40px;display:block;width:100%;height:6px;background:var(--cream);transform-origin:0 50%}
+.tline .pt{position:absolute;top:0;width:400px;margin-left:-200px;text-align:center}
+.tline .pt i{display:block;width:34px;height:34px;margin:26px auto 22px;background:var(--gold);border:6px solid var(--ink);border-radius:50%}
+.tline .pt s{display:block;text-decoration:none;font-size:30px;font-weight:800;color:var(--gold);white-space:nowrap}
+.tline .pt b{display:block;font-family:'Paperlogy';font-weight:900;font-size:46px;letter-spacing:-2px;margin-top:6px;white-space:nowrap}
+.tline .pt u{display:block;text-decoration:none;font-size:28px;color:var(--cream2);margin-top:4px;white-space:nowrap}
+
+/* 막대 */
+.bars .rows{position:absolute;left:140px;top:500px;width:1640px}
+.bars .row{display:flex;align-items:center;gap:28px;height:112px;margin-bottom:22px}
+.bars .nm{display:block;width:340px;font-family:'Paperlogy';font-weight:900;font-size:50px;letter-spacing:-2px;white-space:nowrap}
+.bars .trk{position:relative;display:block;width:640px;height:72px;border:3px dashed rgba(253,251,245,.45)}
+.bars .trk i{position:absolute;left:0;top:0;display:block;width:100%;height:100%;transform-origin:0 50%}
+.bars .up .trk i{background:var(--up)}.bars .dn .trk i{background:var(--dn)}.bars .gold .trk i{background:var(--gold)}
+.bars .val{display:block;width:270px;font-family:'Gmarket';font-size:74px;letter-spacing:-3px;text-align:right;white-space:nowrap}
+.bars .won{display:block;font-family:'Paperlogy';font-weight:900;font-size:38px;width:110px;white-space:nowrap}
+
+/* 두 힘 */
+.vs .cols{position:absolute;left:140px;top:480px;width:1640px;display:flex;align-items:stretch;gap:0}
+.vs .sd{position:relative;display:block;width:730px;height:300px;padding:34px 40px;background:rgba(253,251,245,.07);border:3px solid rgba(253,251,245,.5)}
+.vs .sd.dn{border-color:var(--dn)}.vs .sd.up{border-color:var(--up)}.vs .sd.gold{border-color:var(--gold)}
+.vs .ar{position:absolute;right:30px;top:20px;font-size:70px}.vs .dn .ar{color:var(--dn)}.vs .up .ar{color:var(--up)}.vs .gold .ar{color:var(--gold)}
+.vs .sd s{display:block;text-decoration:none;font-size:34px;font-weight:800;color:var(--cream2);white-space:nowrap}
+.vs .sd b{display:block;font-family:'Paperlogy';font-weight:900;font-size:62px;letter-spacing:-2.5px;margin-top:22px;line-height:1.2}
+.vs .sd .chip{position:absolute;left:40px;bottom:-26px;font-size:40px;background:var(--gold)}
+.vs .mid{display:block;width:180px;height:300px;line-height:300px;text-align:center;font-family:'Gmarket';font-size:64px;color:var(--gold)}
+.vs .note{position:absolute;left:140px;top:826px;margin-top:0}
+
+/* 게이지 */
+.gauge .g{position:absolute;left:140px;top:436px;width:1640px}
+.gauge .pct{display:flex;align-items:baseline;gap:18px;height:136px}
+.gauge .pct b{display:block;font-family:'Gmarket';font-size:136px;line-height:136px;letter-spacing:-5px;color:var(--gold);min-width:420px}
+.gauge .pct u{text-decoration:none;font-family:'Paperlogy';font-weight:900;font-size:60px}
+.gauge .trk{position:relative;display:block;width:100%;height:84px;margin-top:18px;border:4px solid var(--cream);background:rgba(253,251,245,.06)}
+.gauge .trk i{position:absolute;left:0;top:0;display:block;width:100%;height:100%;background:var(--gold);transform-origin:0 50%}
+.gauge .trk em{position:absolute;top:0;height:100%;display:block;background:repeating-linear-gradient(45deg,rgba(255,90,74,.85) 0 14px,rgba(255,90,74,.35) 14px 28px)}
+.gauge .lb{display:flex;justify-content:space-between;margin-top:16px}
+.gauge .lb span{display:block}.gauge .lb .r{text-align:right}
+.gauge .lb s{display:block;text-decoration:none;font-size:30px;font-weight:800;color:var(--cream2)}
+.gauge .lb b{display:block;font-family:'Gmarket';font-size:50px;letter-spacing:-2px;white-space:nowrap}.gauge .lb .r b{color:var(--up)}
+
+/* 3가지 */
+.list3 .rows{position:absolute;left:140px;top:470px;width:1640px}
+.list3 .it{display:flex;align-items:center;gap:36px;height:140px;border-bottom:2px solid rgba(253,251,245,.25)}
+.list3 .no{display:block;width:110px;font-family:'Gmarket';font-size:120px;line-height:120px;color:var(--gold)}
+.list3 .tx{display:block}.list3 .tx b{display:block;font-family:'Paperlogy';font-weight:900;font-size:58px;letter-spacing:-2px;white-space:nowrap}
+.list3 .tx s{display:block;text-decoration:none;font-size:32px;color:var(--cream2);margin-top:4px;white-space:nowrap}
+
+/* 헤드라인 패널 */
+.pnl .box{position:absolute;left:120px;top:286px;width:1300px;background:rgba(16,40,30,.58);border-left:12px solid var(--gold);padding:42px 50px 44px}
+.pnl .dt{display:block;width:max-content;font-family:'Gmarket';font-size:30px;color:var(--ink);background:var(--gold);padding:6px 16px;margin-bottom:24px}
+.pnl .hl{display:block;width:max-content;background:var(--cream);color:var(--ink);font-family:'Paperlogy';font-weight:900;font-size:64px;letter-spacing:-2.5px;padding:4px 18px;margin-bottom:12px;white-space:nowrap}
+.pnl .bds{margin-top:22px}.pnl .bd{display:block;color:#f1ead9;font-size:40px;line-height:1.5;white-space:nowrap}
+
+/* 인용 */
+.quote .wrap{position:absolute;left:140px;top:232px;width:1560px}
+.quote .qt{display:block;font-weight:800;font-size:32px;letter-spacing:4px;color:var(--gold)}
+.quote .gl{display:block;font-family:'Gmarket';font-size:220px;line-height:200px;height:120px;color:var(--gold);margin-top:44px}
+.quote .ln{position:relative;display:block;width:max-content;margin-top:14px;padding:4px 18px}
+.quote .ln i{position:absolute;left:0;right:0;bottom:8px;height:44%;background:rgba(233,182,83,.42);transform-origin:0 50%;display:block}
+.quote .ln b{position:relative;display:block;font-family:'Paperlogy';font-weight:900;font-size:92px;letter-spacing:-4px;line-height:1.2;white-space:nowrap}
+.quote .src{display:block;margin-top:30px;font-size:36px;font-weight:800;color:var(--cream2);white-space:nowrap}
+.quote .stamp{position:absolute;right:150px;top:420px;display:block;width:330px;height:150px;line-height:134px;text-align:center;border:8px solid var(--up);color:var(--up);font-family:'Paperlogy';font-weight:900;font-size:78px;letter-spacing:4px}
+
+/* 안내·엔딩·챕터 */
+.notice{position:absolute;left:140px;top:300px;width:1640px}
+.notice .nt{display:block;width:max-content;font-family:'Gmarket';font-size:34px;background:var(--gold);color:var(--ink);padding:8px 20px;margin-bottom:34px}
+.notice .nl{display:block;font-family:'Paperlogy';font-weight:700;font-size:56px;letter-spacing:-2px;line-height:1.7;white-space:nowrap}
+.endc{position:absolute;left:140px;top:300px;width:1640px}
+.endc .m,.chapbg .m{display:block;overflow:hidden;height:150px;margin-top:12px}
+.endc .m b,.chapbg .m b{display:block;font-family:'Paperlogy';font-weight:900;font-size:118px;line-height:150px;letter-spacing:-5px;color:var(--cream);white-space:nowrap}
+.endc .rl,.chapbg .rl{display:block;height:7px;width:760px;background:var(--gold);transform-origin:0 50%;margin-top:28px}
+.endc .src{display:block;margin-top:26px;font-size:40px;font-weight:800;color:var(--cream2)}
+.endc .chip,.chapbg .chip{background:var(--gold);font-family:'Gmarket';font-size:36px;padding:8px 22px}
+.chapbg{z-index:3;background:radial-gradient(ellipse at 30% 40%,rgba(52,46,32,.72) 0%,rgba(24,30,22,.8) 72%)}
+.chapbg .no{position:absolute;right:60px;top:120px;width:900px;display:block;text-align:right;font-family:'Gmarket';font-size:760px;line-height:760px;color:rgba(233,182,83,.09);letter-spacing:-30px}
+.chapbg .w{position:absolute;left:140px;top:340px;width:1640px}
+.chapbg .logo.lone{z-index:5}
+
+/* 면책 카드 — 인트로 직후 3초 고정 (2026-09-22 사용자 지시). 헤더·로고 없이 명조 톤으로 분위기 전환 */
+@font-face{font-family:'MaruBuri';src:url('assets/fonts/MaruBuri-Bold.ttf');font-weight:700}
+@font-face{font-family:'NotoSerifKR';src:url('assets/fonts/NotoSerifKR-VF.ttf');font-weight:300 900}
+.card:has(.disc){z-index:9}
+.disc{position:absolute;inset:0;background:#070604}
+.disc .frame{position:absolute;left:96px;top:84px;right:96px;bottom:84px;border:1px solid rgba(233,182,83,.45)}
+.disc .frame:after{content:'';position:absolute;inset:10px;border:1px solid rgba(233,182,83,.18)}
+.disc .in{position:absolute;left:0;right:0;top:380px;text-align:center}
+.disc .chip{display:inline-block;background:none;border:0;padding:0;font-family:'NotoSerifKR';font-weight:500;font-size:26px;letter-spacing:10px;text-indent:10px;color:var(--gold);margin-bottom:44px}
+.disc .ln{display:block;font-family:'MaruBuri';font-weight:700;font-size:82px;letter-spacing:-1px;line-height:1.35;color:var(--cream)}
+.disc .ln b{color:var(--gold);font-weight:700}
+.disc .rl{display:block;width:72px;height:2px;background:var(--gold);margin:44px auto 36px;transform-origin:50% 50%}
+.disc .sm{display:block;font-family:'NotoSerifKR';font-weight:400;font-size:28px;color:var(--cream2);letter-spacing:.2px;line-height:1.75}
+
+/* 2026-09-23: 자릿수 많은 숫자가 단위(u)와 겹치는 사고 → 폭에 따라 축소 (285,500 + "원" 겹침) */
+.num.mid .fig b{font-size:270px;line-height:270px;letter-spacing:-10px}
+.num.mid .fig u{font-size:92px}
+.num.long .fig b{font-size:212px;line-height:212px;letter-spacing:-8px}
+.num.long .fig u{font-size:78px}
+.num.long .fig,.num.mid .fig{gap:16px}
+
+/* 2026-10-09 막을 옅게 한 대신 오른쪽 카드 칸은 칸 자체에 바탕을 깐다 */
+.vs .sd{background:rgba(16,40,30,.48)}

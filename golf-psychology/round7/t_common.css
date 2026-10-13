@@ -1,0 +1,6 @@
+@font-face{font-family:P;src:url('file:///C:/Users/freec/.claude/skills/모션영상/assets/fonts/Paperlogy-9Black.ttf')}@font-face{font-family:Q;src:url('file:///C:/Users/freec/.claude/skills/모션영상/assets/fonts/Pretendard-ExtraBold.otf')}
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#000}
+.bg{position:absolute;left:-30px;top:-20px;width:1420px;height:793px;background-size:cover;background-repeat:no-repeat}
+.o{font-family:P;color:#fff;-webkit-text-stroke:14px #111;paint-order:stroke fill;letter-spacing:-3px;line-height:1.05}
+.y{color:#FFE13A}.c{color:#5FF0F0}
+.brand{position:absolute;right:22px;top:20px;font-family:Q;font-size:34px;color:#fff;background:#D63A2F;padding:6px 16px}

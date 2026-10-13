@@ -1,0 +1,12 @@
+# EP.04 썸네일 배경 프롬프트 (밝은 낮 장면, 개념을 그림으로, 글자 자리 비우기)
+# Flow 16:9 · 참조: 스톡\이미지\00.png(주인공), 스톡\이미지\EP04\004_03-네명1번홀….jpeg(동기 셋)
+# 저장: D:\유남매 작업실\골프심리학\mate5\썸네일\ 에 파일 이름 그대로 → 글자 얹어 다시 찍기
+
+[T1] 썸네일_배경_빼고.png — 하단 띠형 (본인만 모르는 골프장 행동 / 동반자는 다 압니다)  ← 추천, A 대체
+Korean webtoon anime style illustration, clean bold line art, bright cel shading, vivid saturated colors, sunny daylight, cinematic 16:9 thumbnail composition. In the foreground on the right, the main character, a Korean man in his mid-50s with short graying hair, navy blue polo shirt and cream golf cap, stands alone in a golf course parking lot holding his golf bag, looking stunned and confused toward the background, where three friends (a slim man with rimless glasses in a light blue polo, a stocky shaved-head man in an olive polo, a tall bearded man in a burgundy polo) walk happily toward the first tee together without him. The bottom third of the image is plain pavement with no details, leaving clean space for large text. No text, no letters, no numbers, no logos, no watermark.
+
+[T2] 썸네일_배경_속마음.png — 왼쪽 위 상자형 (동반자가 말 못 하는 행동 5가지)
+Korean webtoon anime style illustration, clean bold line art, bright cel shading, vivid saturated colors, sunny daylight, cinematic 16:9 thumbnail composition. On a bright tee box, the main character in a navy polo and cream cap eagerly lectures and gestures at a friend in a light blue polo with rimless glasses, who smiles politely on the outside while behind him two other friends exchange exaggerated eye-rolling, tired glances, a comedic contrast between the cheerful lecturer and the silently suffering friends. The upper-left quarter is plain bright sky and the bottom third is plain turf, leaving clean space for text boxes. No text, no letters, no numbers, no logos, no watermark.
+
+[T3] 썸네일_배경_태도.png — 숫자·대비형 (OB는 아무도 기억 못 한다 / 기억하는 건 당신의 태도)
+Korean webtoon anime style illustration, clean bold line art, bright cel shading, vivid saturated colors, warm afternoon daylight, cinematic 16:9 thumbnail composition. Split scene: on the left, the main character in a navy polo and cream cap sighing heavily and hitting the ground with his club, a dark gloomy cloud over his head; on the right, the same man on a green clapping his hands with a warm genuine smile toward a friend's great shot, sunlight and sparkles around him. The bottom third of the image is plain grass with no details, leaving clean space for large text. No text, no letters, no numbers, no logos, no watermark.
